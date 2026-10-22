@@ -3080,6 +3080,8 @@ impl PdfCraftApp {
             if self.copy_page_image(page, index) && cut {
                 if let Some(view) = self.views.get_mut(i) {
                     view.image_selection = None;
+                    // Its menu holds the cut image's index, which the next image now has.
+                    view.image_menu = None;
                 }
                 self.apply_edit(pdfcraft_engine::Edit::EditPageImage { page, index, change: pdfcraft_engine::ImageEdit::Delete });
             }

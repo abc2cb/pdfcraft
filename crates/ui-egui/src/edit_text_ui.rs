@@ -1039,6 +1039,7 @@ pub(crate) fn image_input(
             && !ui.ctx().egui_wants_keyboard_input()
         {
             view.image_selection = None;
+            view.image_menu = None;
             view.pending_edit = Some(Edit::EditPageImage { page, index: i, change: pdfcraft_engine::ImageEdit::Delete });
             return true;
         }
